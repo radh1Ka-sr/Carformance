@@ -33,11 +33,11 @@ const AppointmentTable = ({ appointments }) => {
                       style={{ marginTop: '1.5rem', width: '40px', height: '40px' }}
                     />
                   </th>
-                  <th scope="col">Saloon Name</th>
+                  <th scope="col">Service Center Name</th>
                   <th scope="col">Address</th>
-                  <th scope="col">Services</th>
-                  <th scope="col" className="header-break">Appointment <br /> Start Time</th>
-                  <th scope="col" className="header-break">Appointment <br /> End Time</th>
+                  <th scope="col">Events</th>
+                  <th scope="col" className="header-break">Service <br /> Start Time</th>
+                  <th scope="col" className="header-break">Service <br /> End Time</th>
                   <th scope="col">Total Price (Rs)</th>
                 </tr>
               </thead>

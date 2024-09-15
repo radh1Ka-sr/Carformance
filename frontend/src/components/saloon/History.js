@@ -60,10 +60,10 @@ const History = () => {
   return (
     <div style={{ backgroundColor: 'beige' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <h3 style={{ marginTop: '1.7rem' }}>Deleted Appointments History</h3>
+        <h3 style={{ marginTop: '1.7rem' }}>Deleted Services History</h3>
       </div>
       {appointments.length === 0 ? (
-        <p>No deleted appointments available.</p>
+        <p>No deleted servies available.</p>
       ) : (
         <div style={{ margin: '2rem', marginLeft: '5rem' }}>
           <table className="table table-hover">

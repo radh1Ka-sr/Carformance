@@ -36,7 +36,7 @@ const ButtonAppBar = () => {
         <ul className="nav">
           <li className="nav-item">
             <Link className="nav-link active" aria-current="page" style={{ color: "white" }} to={getTrimTrackerLink()}>
-              Trim Tracker
+              CarFormance
             </Link>
           </li>
         </ul>
@@ -80,7 +80,7 @@ const ButtonAppBar = () => {
                 style={{ color: "white", background: "none", border: "none", cursor: "pointer" }}
                 onClick={handleMyAppointment}
               >
-                My Appointments
+                My Car Services
               </button>
               )}
               {saloonData && (

@@ -71,11 +71,17 @@ const AddAppointment = () => {
   };
 
   if (error) {
-    return <div>Error fetching saloon data.</div>;
+    return <div>Error fetching data.</div>;
   }
 
   if (!saloonData) {
-    return <div>Loading...</div>;
+    return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <div className="spinner-border" role="status">
+          <span>Loading...</span>
+        </div>
+      </div>
+    )
   }
 
   return (

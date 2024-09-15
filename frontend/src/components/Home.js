@@ -13,8 +13,8 @@ const Home = () => {
           <div style={styles.card}>
             <img src="https://img.freepik.com/free-vector/beauty-salon-pattern_1284-35826.jpg?w=740&t=st=1722596113~exp=1722596713~hmac=22158036243bb100edc39e530b957eb289bc007fd126076558dfa3e4dd2efa29" alt="Saloon" style={styles.cardImage} />
             <div style={styles.cardBody}>
-              <p style={styles.cardText}>Click Here for Registering as a Saloon.</p>
-              <Link to="/saloonRegister" style={styles.button}>Saloon</Link>
+              <p style={styles.cardText}>Click Here for Registering as a Car Service Center.</p>
+              <Link to="/saloonRegister" style={styles.button}>Service Center</Link>
             </div>
           </div>
           <div style={styles.card}>

@@ -16,7 +16,7 @@ app.use('/user', userRouter);
 app.use('/saloon', shopRouter);
 
 // Connect to MongoDB
-const uri = 'mongodb+srv://pratiknand5:Uy3KiRbVFaA4uMCj@cluster0.eehxhmf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = 'mongodb+srv://pratiknand5:QkMWn0JfDwtAGv0z@cluster0.vso05zt.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(uri, {
   

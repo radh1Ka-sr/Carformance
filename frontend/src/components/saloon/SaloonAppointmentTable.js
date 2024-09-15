@@ -66,8 +66,8 @@ const SaloonAppointmentTable = ({ appointments, setAppointments, toast }) => { /
               />
             </th>
             <th scope="col">Customer Name</th>
-            <th scope="col">Customer Services</th>
-            <th scope="col">Appointment Time</th>
+            <th scope="col">Customer Events</th>
+            <th scope="col">Service Time</th>
             <th scope="col">Status</th>
           </tr>
         </thead>

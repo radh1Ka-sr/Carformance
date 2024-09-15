@@ -24,7 +24,7 @@ const ServiceTable = ({ services, prices, times, onServiceChange }) => {
     <table className="table table-hover">
       <thead>
         <tr>
-          <th scope="col">Services</th>
+          <th scope="col">Service</th>
           <th scope="col">Prices (Rs)</th>
           <th scope="col">Time(min)</th>
         </tr>
