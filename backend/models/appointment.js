@@ -3,13 +3,13 @@ const { Schema } = mongoose;
 
 const AppointmentSchema = new Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    saloonId: { type: mongoose.Schema.Types.ObjectId, ref: 'Saloon', required: true },
+    serviceCentreId: { type: mongoose.Schema.Types.ObjectId, ref: 'ServiceCentre', required: true },
     services: [String],
     totalPrice: Number,
     startTime: Date,
     endTime: Date,
-    saloonName : String,
-    saloonAddress : String,
+    serviceCentreName : String,
+    serviceCentreAddress : String,
     userName : String
   
 });

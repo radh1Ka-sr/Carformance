@@ -4,11 +4,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react'; // Import useToast
 
-const SaloonRegister = () => {
+const ServiceCentreRegister = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [saloonName, setSaloonName] = useState('');
+  const [serviceCentreName, setServiceCentreName] = useState('');
   const [address, setAddress] = useState('');
   const [imageAddress, setImageAddress] = useState('');
   const [services, setServices] = useState([]);
@@ -52,20 +52,20 @@ const SaloonRegister = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    axios.post('http://localhost:3000/saloon/signup', {
-      name, email, password, saloonName, address, imageAddress, services, prices, averageTimes
+    axios.post('http://localhost:3000/serviceCentre/signup', {
+      name, email, password, serviceCentreName, address, imageAddress, services, prices, averageTimes
     })
     .then(result => {
       console.log(result);
-      if (result.data.message === "Saloon created successfully") {
+      if (result.data.message === "ServiceCentre created successfully") {
         toast({
           title: "Registration Successful",
-          description: "Saloon registered successfully.",
+          description: "ServiceCentre registered successfully.",
           status: "success",
           duration: 5000,
           isClosable: true,
         });
-        navigate('/saloonLogin');
+        navigate('/serviceCentreLogin');
       } else {
         toast({
           title: "Registration Failed",
@@ -108,8 +108,8 @@ const SaloonRegister = () => {
               <input type="password" className="form-control" id="exampleInputPassword1" onChange={(event) => setPassword(event.target.value)} />
             </div>
             <div className="mb-3">
-              <label htmlFor="exampleInputSaloonName" className="form-label">Service Center Name</label>
-              <input type="text" className="form-control" id="exampleInputSaloonName" onChange={(event) => setSaloonName(event.target.value)} />
+              <label htmlFor="exampleInputServiceCentreName" className="form-label">Service Center Name</label>
+              <input type="text" className="form-control" id="exampleInputServiceCentreName" onChange={(event) => setServiceCentreName(event.target.value)} />
             </div>   
             <div className="mb-3">
               <label htmlFor="exampleInputAddress" className="form-label">Address</label>
@@ -137,7 +137,7 @@ const SaloonRegister = () => {
             <button type="submit" className="btn btn-primary">Register</button>
           </form>
           <div className="text-center mt-4">
-            <Link to="/saloonLogin">If you are already registered then Login!</Link>
+            <Link to="/serviceCentreLogin">If you are already registered then Login!</Link>
           </div>
         </div>
       </div>
@@ -145,4 +145,4 @@ const SaloonRegister = () => {
   );
 }
 
-export default SaloonRegister;
+export default ServiceCentreRegister;

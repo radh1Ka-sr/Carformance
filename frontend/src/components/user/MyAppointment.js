@@ -8,7 +8,7 @@ const MyAppointment = () => {
   const [loading, setLoading] = useState(true);
   
 
-  const fetchSaloonData = async () => {
+  const fetchServiceCentreData = async () => {
     try {
       const token = localStorage.getItem('auth').replace(/(^"|"$)/g, '');
       const response = await axios.get(`http://localhost:3000/user/myAppointments`, {
@@ -27,7 +27,7 @@ const MyAppointment = () => {
   };
 
   useEffect(() => {
-    fetchSaloonData();
+    fetchServiceCentreData();
   }, []);
 
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import SaloonAppointmentTable from './SaloonAppointmentTable';
+import ServiceCentreAppointmentTable from './ServiceCentreAppointmentTable';
 import { ChakraProvider, useToast } from '@chakra-ui/react'; // Imported ChakraProvider and useToast
 
-const SaloonHome = () => {
+const ServiceCentreHome = () => {
   const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState(null);
   const toast = useToast(); // Initialized useToast
@@ -13,7 +13,7 @@ const SaloonHome = () => {
     const fetchAppointments = async () => {
       try {
         const token = localStorage.getItem('auth').replace(/(^"|"$)/g, '');
-        const response = await axios.get('http://localhost:3000/saloon', {
+        const response = await axios.get('http://localhost:3000/serviceCentre', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -54,10 +54,10 @@ const SaloonHome = () => {
           style={{ marginTop: '1.5rem', width: '40px', height: '40px' }}
         />
       </div>
-      <SaloonAppointmentTable appointments={appointments} setAppointments={setAppointments} toast={toast} /> {/* Passed toast prop */}
+      <ServiceCentreAppointmentTable appointments={appointments} setAppointments={setAppointments} toast={toast} /> {/* Passed toast prop */}
     </ChakraProvider>
     </div>
   );
 };
 
-export default SaloonHome;
+export default ServiceCentreHome;

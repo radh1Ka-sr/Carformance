@@ -19,7 +19,7 @@ const History = () => {
       }
 
       try {
-        const response = await axios.get(`${API_URL}/saloon/deleted-appointments`, {
+        const response = await axios.get(`${API_URL}/serviceCentre/deleted-appointments`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

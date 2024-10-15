@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Saloon = () => {
+const ServiceCentre = () => {
   return (
     <div style={{ margin:'3rem',width: '20rem',height:'20rem',display:'flex',justifyContent:'center'}}>
       <div className="card" >
@@ -25,4 +25,4 @@ const Saloon = () => {
   );
 }
 
-export default Saloon;
+export default ServiceCentre;

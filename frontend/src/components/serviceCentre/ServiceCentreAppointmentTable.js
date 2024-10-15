@@ -18,12 +18,12 @@ const formatDate = (dateString) => {
   return `${formattedDate}\n${formattedTime}`;
 };
 
-const SaloonAppointmentTable = ({ appointments, setAppointments, toast }) => { // Added toast prop
+const ServiceCentreAppointmentTable = ({ appointments, setAppointments, toast }) => { // Added toast prop
 
   const handleClick = async (appointmentId) => {
     try {
       const token = localStorage.getItem('auth').replace(/(^"|"$)/g, '');
-      await axios.delete(`http://localhost:3000/saloon/${appointmentId}`, {
+      await axios.delete(`http://localhost:3000/serviceCentre/${appointmentId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -109,4 +109,4 @@ const SaloonAppointmentTable = ({ appointments, setAppointments, toast }) => { /
   );
 };
 
-export default SaloonAppointmentTable;
+export default ServiceCentreAppointmentTable;

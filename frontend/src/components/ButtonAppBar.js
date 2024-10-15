@@ -13,13 +13,13 @@ const ButtonAppBar = () => {
     navigate('/userMyAppointment');
   };
   const handleMyHistory = () => {
-    navigate('/saloonHistory');
+    navigate('/serviceCentreHistory');
   };
   const getTrimTrackerLink = () => {
     if (!token) {
       return '/';
-    } else if (saloonData) {
-      return '/saloonHome';
+    } else if (serviceCentreData) {
+      return '/serviceCentreHome';
     } else if (userData) {
       return '/userHome';
     }
@@ -27,7 +27,7 @@ const ButtonAppBar = () => {
   };
 
   const token = localStorage.getItem('auth');
-  const saloonData = JSON.parse(localStorage.getItem('saloon'));
+  const serviceCentreData = JSON.parse(localStorage.getItem('serviceCentre'));
   const userData = JSON.parse(localStorage.getItem('user'));
 
   return (
@@ -41,10 +41,10 @@ const ButtonAppBar = () => {
           </li>
         </ul>
         <ul className="nav justify-content-center">
-          {token && saloonData && (
+          {token && serviceCentreData && (
             <li className="nav-item">
-              <Link to="/saloonProfile" className="nav-link" style={{ color: "white" }}>
-               {saloonData.name}
+              <Link to="/serviceCentreProfile" className="nav-link" style={{ color: "white" }}>
+               {serviceCentreData.name}
               </Link>
             </li>
           )}
@@ -83,7 +83,7 @@ const ButtonAppBar = () => {
                 My Car Services
               </button>
               )}
-              {saloonData && (
+              {serviceCentreData && (
               <button
                 className="nav-link"
                 style={{ color: "white", background: "none", border: "none", cursor: "pointer" }}

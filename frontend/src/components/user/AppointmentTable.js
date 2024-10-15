@@ -45,8 +45,8 @@ const AppointmentTable = ({ appointments }) => {
                 {appointments.map((appointment, index) => (
                   <tr key={index}>
                     <th scope="row"><li style={{ marginLeft: '0.8rem' }}></li></th>
-                    <td><Link to={`/userAddAppointment/${appointment.saloonId}`}>{appointment.saloonName}</Link></td>
-                    <td>{appointment.saloonAddress}</td>
+                    <td><Link to={`/userAddAppointment/${appointment.serviceCentreId}`}>{appointment.serviceCentreName}</Link></td>
+                    <td>{appointment.serviceCentreAddress}</td>
                     <td>{appointment.services.join(', ')}</td>
                     <td style={{ whiteSpace: 'pre-wrap' }}>{formatDate(appointment.startTime)}</td>
                     <td style={{ whiteSpace: 'pre-wrap' }}>{formatDate(appointment.endTime)}</td>

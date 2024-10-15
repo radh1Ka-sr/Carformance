@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 
 const userRouter = require('./routes/user');
-const shopRouter = require('./routes/saloon'); // Ensure the correct path is used
+const shopRouter = require('./routes/serviceCentre'); // Ensure the correct path is used
 
 const app = express();
 
@@ -13,10 +13,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/user', userRouter);
-app.use('/saloon', shopRouter);
+app.use('/serviceCentre', shopRouter);
 
 // Connect to MongoDB
-const uri = 'mongodb+srv://pratiknand5:QkMWn0JfDwtAGv0z@cluster0.vso05zt.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://radhikasrajawatciv21:akxghY0BZCHa6eAu@cluster0.i3xhz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(uri, {
   

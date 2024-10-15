@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 // Define mongoose schemas
-const SaloonSchema = new Schema({
+const ServiceCentreSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -16,7 +16,7 @@ const SaloonSchema = new Schema({
         type: String,
         required: true,
     },
-    saloonName: {
+    serviceCentreName: {
         type: String,
         required: true,
     },
@@ -52,5 +52,5 @@ const SaloonSchema = new Schema({
     }
 });
 
-const Saloon = mongoose.model("Saloon", SaloonSchema);
-module.exports = Saloon;
+const ServiceCentre = mongoose.model("ServiceCentre", ServiceCentreSchema);
+module.exports = ServiceCentre;

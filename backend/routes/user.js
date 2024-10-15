@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User, Saloon, Appointment} = require("../models");
+const { User, ServiceCentre, Appointment} = require("../models");
 const SECRET = "pratik"
 const jwt = require('jsonwebtoken');
 const { authenticateJwt } = require('../middleware/auth');
@@ -52,18 +52,18 @@ router.get('/myAppointments', authenticateJwt, async (req, res) => {
   }
 });
 
- //Get all saloons
+ //Get all serviceCentres
  router.get('/', authenticateJwt, async (req, res) => {
-  const saloon = await Saloon.find({});
-  res.json({ saloon });
+  const serviceCentre = await ServiceCentre.find({});
+  res.json({ serviceCentre });
 });
 
   
 
-  //Get saloon by id
-  router.get('/:saloonId' , authenticateJwt , async (req,res)=>{
+  //Get serviceCentre by id
+  router.get('/:serviceCentreId' , authenticateJwt , async (req,res)=>{
     try {
-        let data = await Saloon.findById(req.params.saloonId);
+        let data = await ServiceCentre.findById(req.params.serviceCentreId);
         res.json({data : data});
     } catch (error) {
         res.json({message : error.message})
@@ -71,19 +71,19 @@ router.get('/myAppointments', authenticateJwt, async (req, res) => {
 })
 
 // Post appointment
-router.post('/:saloonId/appointment', authenticateJwt, async (req, res) => {
+router.post('/:serviceCentreId/appointment', authenticateJwt, async (req, res) => {
   const { services } = req.body;
   const email = req.user.user;
-  const saloonId = req.params.saloonId;
+  const serviceCentreId = req.params.serviceCentreId;
   const user = await User.findOne({ email });
   // console.log(user);
 
   try {
-    const saloon = await Saloon.findById(saloonId);
+    const serviceCentre = await ServiceCentre.findById(serviceCentreId);
 
     
-    if (!saloon) {
-      return res.status(404).json({ message: 'Saloon not found' });
+    if (!serviceCentre) {
+      return res.status(404).json({ message: 'ServiceCentre not found' });
     }
 
     let totalPrice = 0;
@@ -92,9 +92,9 @@ router.post('/:saloonId/appointment', authenticateJwt, async (req, res) => {
     const servicePriceMap = new Map();
     const serviceTimeMap = new Map();
 
-    saloon.services.forEach((service, index) => {
-      servicePriceMap.set(service, saloon.prices[index]);
-      serviceTimeMap.set(service, saloon.averageTimes[index]);
+    serviceCentre.services.forEach((service, index) => {
+      servicePriceMap.set(service, serviceCentre.prices[index]);
+      serviceTimeMap.set(service, serviceCentre.averageTimes[index]);
     });
 
     services.forEach(service => {
@@ -109,17 +109,17 @@ router.post('/:saloonId/appointment', authenticateJwt, async (req, res) => {
     // Calculation of time
     let currTime = new Date();
     let startTime;
-    if (currTime > new Date(saloon.endTime)) {
+    if (currTime > new Date(serviceCentre.endTime)) {
       startTime = currTime;
     } else {
-      startTime = new Date(saloon.endTime);
+      startTime = new Date(serviceCentre.endTime);
     }
 
     // Convert totalTime (in minutes) to milliseconds and add to startTime
     let endTime = new Date(startTime.getTime() + totalTime * 60000);
 
-    // Update saloon's endTime to be endTime of this appointment
-    saloon.endTime = endTime;
+    // Update serviceCentre's endTime to be endTime of this appointment
+    serviceCentre.endTime = endTime;
 
     let formattedStartTime = startTime.toString();
     let formattedEndTime = endTime.toString();
@@ -128,13 +128,13 @@ router.post('/:saloonId/appointment', authenticateJwt, async (req, res) => {
 
     const newAppointment = new Appointment({
       userId: user._id,
-      saloonId: saloonId,
+      serviceCentreId: serviceCentreId,
       services : services,
       totalPrice : totalPrice,
       startTime : formattedStartTime,
       endTime : formattedEndTime,
-      saloonName : saloon.saloonName,
-      saloonAddress : saloon.address,
+      serviceCentreName : serviceCentre.serviceCentreName,
+      serviceCentreAddress : serviceCentre.address,
       userName : user.name
 
     });
@@ -150,11 +150,11 @@ router.post('/:saloonId/appointment', authenticateJwt, async (req, res) => {
     })
     await user.save();
 
-    saloon.appointments.push(newAppointment._id);
-    await saloon.save();
+    serviceCentre.appointments.push(newAppointment._id);
+    await serviceCentre.save();
     
-      saloon.user.push(user._id);
-      await saloon.save();
+      serviceCentre.user.push(user._id);
+      await serviceCentre.save();
 
     // Format the dates as strings
 
@@ -174,8 +174,8 @@ router.post('/:saloonId/appointment', authenticateJwt, async (req, res) => {
 
 // //Get MyAppointments
 // router.get('/', authenticateJwt, async (req, res) => {
-//   const saloon = await Saloon.find({});
-//   res.json({ saloon });
+//   const serviceCentre = await ServiceCentre.find({});
+//   res.json({ serviceCentre });
 // });
 
 

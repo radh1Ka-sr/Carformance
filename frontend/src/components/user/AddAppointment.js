@@ -6,8 +6,8 @@ import { useToast } from '@chakra-ui/react';
 
 const AddAppointment = () => {
   const navigate = useNavigate();
-  const { saloonId } = useParams();
-  const [saloonData, setSaloonData] = useState(null);
+  const { serviceCentreId } = useParams();
+  const [serviceCentreData, setServiceCentreData] = useState(null);
   const [selectedServices, setSelectedServices] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [error, setError] = useState(null);
@@ -17,15 +17,15 @@ const AddAppointment = () => {
 
   const toast = useToast();
 
-  const fetchSaloonData = async () => {
+  const fetchServiceCentreData = async () => {
     try {
       const token = localStorage.getItem('auth').replace(/(^"|"$)/g, '');
-      const response = await axios.get(`http://localhost:3000/user/${saloonId}`, {
+      const response = await axios.get(`http://localhost:3000/user/${serviceCentreId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setSaloonData(response.data.data);
+      setServiceCentreData(response.data.data);
       setImage(response.data.data.imageAddress);
     } catch (err) {
       setError(err);
@@ -33,8 +33,8 @@ const AddAppointment = () => {
   };
 
   useEffect(() => {
-    fetchSaloonData();
-  }, [saloonId]);
+    fetchServiceCentreData();
+  }, [serviceCentreId]);
 
   const handleServiceChange = (selected, totalPrice) => {
     setSelectedServices(selected);
@@ -46,7 +46,7 @@ const AddAppointment = () => {
       const token = localStorage.getItem('auth').replace(/(^"|"$)/g, '');
       const user = JSON.parse(localStorage.getItem('user')); 
       const response = await axios.post(
-        `http://localhost:3000/user/${saloonId}/appointment`,
+        `http://localhost:3000/user/${serviceCentreId}/appointment`,
         { services: selectedServices },
         {
           headers: {
@@ -74,7 +74,7 @@ const AddAppointment = () => {
     return <div>Error fetching data.</div>;
   }
 
-  if (!saloonData) {
+  if (!serviceCentreData) {
     return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div className="spinner-border" role="status">
@@ -92,23 +92,23 @@ const AddAppointment = () => {
             <img
               src={image}
               className="card-img-top"
-              alt="Saloon"
+              alt="ServiceCentre"
             />
             <div className="card-body">
-              <h5 className="card-title text-center">{saloonData.saloonName}</h5>
+              <h5 className="card-title text-center">{serviceCentreData.serviceCentreName}</h5>
               <ul className="list-group list-group-flush">
-                <li className="list-group-item">Email: {saloonData.email}</li>
-                <li className="list-group-item">Owner: {saloonData.name}</li>
-                <li className="list-group-item">Address: {saloonData.address}</li>
+                <li className="list-group-item">Email: {serviceCentreData.email}</li>
+                <li className="list-group-item">Owner: {serviceCentreData.name}</li>
+                <li className="list-group-item">Address: {serviceCentreData.address}</li>
               </ul>
             </div>
           </div>
         </div>
         <div className="col-12 col-md-6 mb-4">
           <ServiceTable
-            services={saloonData.services}
-            prices={saloonData.prices}
-            times={saloonData.averageTimes}
+            services={serviceCentreData.services}
+            prices={serviceCentreData.prices}
+            times={serviceCentreData.averageTimes}
             onServiceChange={handleServiceChange}
           />
           <div className="d-flex justify-content-end mt-3">

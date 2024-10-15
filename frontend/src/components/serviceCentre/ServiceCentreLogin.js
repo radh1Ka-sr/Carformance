@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '@chakra-ui/react'; // Import useToast
 
-const SaloonLogin = () => {
+const ServiceCentreLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -14,13 +14,13 @@ const SaloonLogin = () => {
     event.preventDefault();
     console.log("Hello");
 
-    axios.post('http://localhost:3000/saloon/login', { email, password })
+    axios.post('http://localhost:3000/serviceCentre/login', { email, password })
       .then(result => {
         console.log(result);
         if (result.data.message === "Logged in successfully") {
           console.log("Login Success");
           localStorage.setItem('auth', JSON.stringify(result.data.token)); 
-          localStorage.setItem('saloon', JSON.stringify(result.data.saloon));  
+          localStorage.setItem('serviceCentre', JSON.stringify(result.data.serviceCentre));  
           
           toast({
             title: "Login Successful",
@@ -30,7 +30,7 @@ const SaloonLogin = () => {
             isClosable: true,
           });
 
-          navigate('/saloonHome');
+          navigate('/serviceCentreHome');
         } else {
           toast({
             title: "Incorrect Password",
@@ -58,7 +58,7 @@ const SaloonLogin = () => {
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
           <div className="border p-4" style={{ borderRadius: '10px' , backgroundColor:'beige'}}>
-            <h2 className="text-center mb-4">Login as a Saloon</h2>
+            <h2 className="text-center mb-4">Login as a ServiceCentre</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
@@ -86,7 +86,7 @@ const SaloonLogin = () => {
             </form>
           </div>
           <div className="text-center mt-4">
-            <Link to="/saloonRegister">
+            <Link to="/serviceCentreRegister">
               If you are not registered then Register!
             </Link>
           </div>
@@ -96,4 +96,4 @@ const SaloonLogin = () => {
   );
 }
 
-export default SaloonLogin;
+export default ServiceCentreLogin;

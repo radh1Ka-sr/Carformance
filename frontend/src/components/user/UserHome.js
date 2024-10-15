@@ -4,7 +4,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UserHome = () => {
-  const [saloonData, setSaloonData] = useState([]);
+  const [serviceCentreData, setServiceCentreData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -16,8 +16,8 @@ const UserHome = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      const sortedData = response.data.saloon.sort((a, b) => a.endTime - b.endTime);
-      setSaloonData(sortedData);
+      const sortedData = response.data.serviceCentre.sort((a, b) => a.endTime - b.endTime);
+      setServiceCentreData(sortedData);
       setLoading(false);
     } catch (err) {
       setError(err);
@@ -41,13 +41,13 @@ const UserHome = () => {
 
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', backgroundColor:'beige' }}>
-      {saloonData.map((saloon, index) => (
+      {serviceCentreData.map((serviceCentre, index) => (
         <Card 
           key={index} 
-          imageSrc={saloon.imageAddress} 
-          title={saloon.saloonName} 
-          text={saloon.address} 
-          link={saloon._id}
+          imageSrc={serviceCentre.imageAddress} 
+          title={serviceCentre.serviceCentreName} 
+          text={serviceCentre.address} 
+          link={serviceCentre._id}
         />
       ))}
       {error && <div>Error: {error.message}</div>}
