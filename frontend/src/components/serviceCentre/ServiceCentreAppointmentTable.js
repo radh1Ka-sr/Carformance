@@ -59,11 +59,7 @@ const ServiceCentreAppointmentTable = ({ appointments, setAppointments, toast })
         <thead>
           <tr>
             <th scope="col">
-              <img 
-                src="https://t3.ftcdn.net/jpg/05/24/30/20/360_F_524302085_lZ82Bsfc7OECPdtVv0isnvda88BMHIJB.jpg" 
-                alt="Logo" 
-                style={{ marginTop: '1.5rem', width: '40px', height: '40px' }}
-              />
+            
             </th>
             <th scope="col">Customer Name</th>
             <th scope="col">Customer Events</th>
@@ -96,7 +92,7 @@ const ServiceCentreAppointmentTable = ({ appointments, setAppointments, toast })
               </tr>
               {index === 0 && (
                 <tr>
-                  <td colSpan="5" style={{ textAlign: 'center', fontWeight: 'bold', paddingTop: '2.5rem', paddingBottom: '1.5rem', backgroundColor:'beige'}}>
+                  <td colSpan="5" style={{ textAlign: 'center', fontWeight: 'bold', paddingTop: '2.5rem', paddingBottom: '1.5rem', backgroundColor:'lightblue'}}>
                     <h4>Customer's in queue</h4>
                   </td>
                 </tr>

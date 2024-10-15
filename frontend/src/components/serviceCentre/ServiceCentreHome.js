@@ -44,15 +44,11 @@ const ServiceCentreHome = () => {
   }
 
   return (
-    <div style={{backgroundColor:'beige'}}>
+    <div style={{backgroundColor:'lightblue'}}>
     <ChakraProvider >
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
         <h4 style={{ marginTop: '1.7rem' }}>List of Customer's appointed for Car services</h4>
-        <img 
-          src="https://t3.ftcdn.net/jpg/05/24/30/20/360_F_524302085_lZ82Bsfc7OECPdtVv0isnvda88BMHIJB.jpg" 
-          alt="Logo" 
-          style={{ marginTop: '1.5rem', width: '40px', height: '40px' }}
-        />
+        
       </div>
       <ServiceCentreAppointmentTable appointments={appointments} setAppointments={setAppointments} toast={toast} /> {/* Passed toast prop */}
     </ChakraProvider>

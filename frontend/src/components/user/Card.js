@@ -8,7 +8,7 @@ const Card = ({ imageSrc, title, text , link}) => {
 
   const navigate = useNavigate();
   return (
-    <div className="card" style={{ width: '18rem', marginTop: '1.5rem', marginLeft: '1.5rem' }}>
+    <div className="card" style={{ width: '18rem', marginTop: '1.5rem', marginLeft: '1.5rem', backgroundColor: 'beige' }}>
       <img src={imageSrc} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>

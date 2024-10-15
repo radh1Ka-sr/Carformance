@@ -27,11 +27,7 @@ const AppointmentTable = ({ appointments }) => {
               <thead>
                 <tr>
                   <th scope="col">
-                    <img
-                      src="https://t3.ftcdn.net/jpg/05/24/30/20/360_F_524302085_lZ82Bsfc7OECPdtVv0isnvda88BMHIJB.jpg"
-                      alt="Logo"
-                      style={{ marginTop: '1.5rem', width: '40px', height: '40px' }}
-                    />
+                    
                   </th>
                   <th scope="col">Service Center Name</th>
                   <th scope="col">Address</th>

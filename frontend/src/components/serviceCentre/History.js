@@ -58,7 +58,7 @@ const History = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div style={{ backgroundColor: 'beige' }}>
+    <div style={{ backgroundColor: 'lightblue' }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         <h3 style={{ marginTop: '1.7rem' }}>Deleted Services History</h3>
       </div>

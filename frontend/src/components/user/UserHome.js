@@ -40,7 +40,7 @@ const UserHome = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', backgroundColor:'beige' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly', backgroundColor:'lightblue' }}>
       {serviceCentreData.map((serviceCentre, index) => (
         <Card 
           key={index} 

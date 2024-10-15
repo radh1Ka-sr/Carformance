@@ -92,7 +92,7 @@ const ServiceCentreRegister = () => {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <form onSubmit={handleSubmit} className="border p-4" style={{ borderRadius: '10px',backgroundColor:'beige' }}>
+          <form onSubmit={handleSubmit} className="border p-4" style={{ borderRadius: '10px',backgroundColor:'lightblue' }}>
             <h2 className="text-center mb-4">Register as a Car Service Center</h2>
             <div className="mb-3">
               <label htmlFor="exampleInputName" className="form-label">Name</label>
