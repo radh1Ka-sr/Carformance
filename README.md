@@ -31,6 +31,12 @@
 
 ## Getting Started 🚀
 
+![Screenshot (540)](https://github.com/user-attachments/assets/2380ff0e-1267-45ca-936a-38f92427cfb9)
+![Screenshot (541)](https://github.com/user-attachments/assets/676209e6-d8c8-4689-95cf-b4ea34d25e61)
+![Screenshot (543)](https://github.com/user-attachments/assets/cb5c92e6-d838-4ab7-b054-9fc52bb49a50)
+![Screenshot (545)](https://github.com/user-attachments/assets/f66942fb-3713-4e3a-a2f9-c00fe7dd4924)
+![Screenshot (546)](https://github.com/user-attachments/assets/24a9ce96-d8c5-4e87-a472-5c287a34c084)
+![Screenshot (547)](https://github.com/user-attachments/assets/102274d1-7e53-4cb8-830e-4ecbeddd13c0) 
 
 To run this project locally, follow these steps:
 
@@ -51,8 +57,7 @@ npm install
 # JWT_SECRET=your_secret_key
 
 # 5. Run the backend server
-npm start
-# Backend server will run at http://localhost:5000
+node server.js
 
 # 6. Navigate to the frontend directory
 cd ../frontend
@@ -62,4 +67,7 @@ npm install
 
 # 8. Run the frontend server
 npm start
-# Frontend server will run at http://localhost:3000
+
+
+
+
